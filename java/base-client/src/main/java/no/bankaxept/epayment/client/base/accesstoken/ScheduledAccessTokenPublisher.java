@@ -68,7 +68,14 @@ public class ScheduledAccessTokenPublisher implements AccessTokenPublisher, Flow
   private void fetchNewToken() {
     if (shutDown)
       return;
+    printHeaders(url.toString(), headers);
     httpClient.post(url.toString(), new SinglePublisher<>(body, fetchExecutor), headers).subscribe(this);
+  }
+
+  public static void printHeaders(String url, Map<String, List<String>> headers) {
+    for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
+      System.out.println("CLIENT_IT_Key: " + entry.getKey() + ", CLIENT_IT_Value: " + entry.getValue() + "CLIENT_URL_TARGET:" + url);
+    }
   }
 
   @Override
@@ -138,6 +145,7 @@ public class ScheduledAccessTokenPublisher implements AccessTokenPublisher, Flow
       @Override
       public void cancel() {}
     });
+
     var token = atomicToken.get();
     if (token != null && token.getExpiry().isAfter(clock.instant()))
       subscriber.onNext(token.getToken());
