@@ -258,6 +258,7 @@ components:
         The merchant aggregator's unique identifier.
     correlationId:
       type: string
+      pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
       maxLength: 36
       example: "74313af1-e2cc-403f-85f1-6050725b01b6"
     iss:
