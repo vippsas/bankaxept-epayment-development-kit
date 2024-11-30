@@ -1,0 +1,5 @@
+{
+    "some_other_field": "abc",
+    "access_token": "a-token",
+    "expires_in": 3600
+  }

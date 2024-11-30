@@ -1,0 +1,9 @@
+{
+  "generatorName": "csharp",
+  "inputSpec": "../../openapi/integrator/merchant/bankaxept.yaml",
+  "output": "openapi",
+  "additionalProperties": {
+    "packageName": "BankAxept.Epayment.Client.Merchant",
+    "packageVersion": "1.0.0"
+  }
+}

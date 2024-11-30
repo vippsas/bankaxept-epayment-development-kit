@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <Target Name="GenerateOpenApiClient" BeforeTargets="Restore">
+    <Exec Command="openapi-generator-cli generate -i ../../../openapi/integrator/token-requestor/bankaxept.yaml -g csharp --ignore-file-override ../../.openapi-generator-ignore -o ../generated -c ../openapi-config.json" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\generated\src\BankAxept.Epayment.Client.TokenRequestor\BankAxept.Epayment.Client.TokenRequestor.csproj" />
+    <ProjectReference Include="..\..\BaseClient\src\BaseClient.csproj" />
+  </ItemGroup>
+</Project>

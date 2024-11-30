@@ -1,0 +1,9 @@
+# OpenAPI Generator Ignore
+# Defines files and patterns which are to be excluded from the generated output
+**/.gitignore
+**/appveyor.yml
+**/git_push.sh
+**/README.md
+**/docs/
+**/*.Test/
+**/*.sln

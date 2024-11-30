@@ -1,0 +1,9 @@
+{
+    "generatorName": "csharp",
+    "inputSpec": "../../openapi/integrator/token-requestor/bankaxept.yaml",
+    "output": "openapi",
+    "additionalProperties": {
+      "packageName": "BankAxept.Epayment.Client.TokenRequestor",
+      "packageVersion": "1.0.0"
+    }
+  }
