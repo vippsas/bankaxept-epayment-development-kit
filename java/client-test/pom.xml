@@ -60,6 +60,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.40</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>no.bankaxept.epayment</groupId>
             <artifactId>webflux-client</artifactId>
             <scope>test</scope>
