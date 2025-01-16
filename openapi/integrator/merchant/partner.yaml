@@ -180,6 +180,8 @@ components:
           $ref: '../components.yaml#/components/schemas/merchantReference'
         status:
           $ref: '#/components/schemas/CaptureStatus'
+        errorCode:
+          $ref: '#/components/schemas/ErrorCode'
         timeCreated:
           type: string
           format: date-time
@@ -204,6 +206,8 @@ components:
           $ref: '../components.yaml#/components/schemas/merchantReference'
         status:
           $ref: '#/components/schemas/RefundStatus'
+        errorCode:
+          $ref: '#/components/schemas/ErrorCode'
         timeCreated:
           type: string
           format: date-time
@@ -318,3 +322,25 @@ components:
       maxLength: 6
       description: >-
         A code from the issuer identifying a successful authorisation.
+
+    ErrorCode:
+      type: string
+      example: Declined
+      description: |
+        Only provided in Failure/Declined scenarios. 
+        Code specifying the cause of failure for the Refund or Capture operation:
+        * Unavailable - Retryable.
+        * InitiationFailed - Retryable.
+        * Failed - Not Retryable. Review configuration of integration.
+        * Incomprehensible - Retryable, possible network issue or ongoing incident.
+        * Blocked - Transaction is blocked, recommend contacting issuer.
+        * TransactionNotPermitted - Not permitted, review configuration integration. For example length of time since original transaction or activation of functionality on BAX account.
+        * Declined - Not retryable. Declined by business rules.
+      enum:
+        - Unavailable
+        - InitiationFailed
+        - Failed
+        - Incomprehensible
+        - TransactionNotPermitted
+        - Blocked
+        - Declined
